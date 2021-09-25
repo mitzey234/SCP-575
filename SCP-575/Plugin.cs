@@ -81,13 +81,7 @@ namespace SCP_575
 				if (Config.EnableKeter)
 					EventHandlers.Coroutines.Add(Timing.RunCoroutine(Keter(blackoutDur), "keter"));
 
-				List<ZoneType> affectedZones = new List<ZoneType>();
-
-				if (Config.OnlyHeavy) affectedZones.Add(ZoneType.HeavyContainment);
-				else
-					affectedZones.AddRange(new List<ZoneType> { ZoneType.Surface, ZoneType.Entrance, ZoneType.HeavyContainment, ZoneType.LightContainment });
-
-				foreach (ZoneType type in affectedZones)
+				foreach (ZoneType type in Config.AffectedZones) 
 					Map.TurnOffAllLights(blackoutDur, type);
 
 				if (Config.Voice)

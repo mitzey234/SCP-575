@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel;
+using Exiled.API.Enums;
 using Exiled.API.Interfaces;
 using Exiled.Loader;
 
@@ -24,8 +26,14 @@ namespace SCP_575
         public int SpawnChance { get; private set; } = 45;
         [Description("Whether or not people in dark rooms should take damage if they have no light source in their hand.")]
         public bool EnableKeter { get; private set; } = true;
-        [Description("Whether or not blackouts should only affect Heavy Containment.")]
-        public bool OnlyHeavy { get; private set; } = false;
+        [Description("Blackout Affected Zones")]
+        public HashSet<ZoneType> AffectedZones { get; private set; } = new HashSet<ZoneType>
+        {
+            ZoneType.Surface,
+            ZoneType.Entrance,
+            ZoneType.HeavyContainment,
+            ZoneType.LightContainment
+        };
         [Description("Whether or not SCP-575's \"roar\" should happen after a blackout starts.")]
         public bool Voice { get; private set; } = true;
         [Description("How much damage per 5 seconds should be inflicted if EnableKeter is set to true.")]
