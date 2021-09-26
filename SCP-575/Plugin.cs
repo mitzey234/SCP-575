@@ -17,49 +17,38 @@ namespace SCP_575
 		public override string Author { get; } = "Galaxy119";
 		public override string Name { get; } = "SCP-575";
 		public override string Prefix { get; } = "575";
-		public override Version Version { get; } = new Version(3, 8, 0);
+		public override Version Version { get; } = new Version(3, 9, 0);
 		public override Version RequiredExiledVersion { get; } = new Version(3, 0, 0);
 		
 		public Random Gen = new Random();
 		
 		public EventHandlers EventHandlers;
 		public static bool TimerOn;
-		public override PluginPriority Priority { get; } = PluginPriority.Default;
 
 		public override void OnEnabled()
-		{
-			try
-			{
-				Log.Info("loaded.");
-				Log.Info("Configs loaded.");
-				
-				EventHandlers = new EventHandlers(this);
+		{				
+			EventHandlers = new EventHandlers(this);
 
-				Handlers.Server.RoundStarted += EventHandlers.OnRoundStart;
-				Handlers.Server.RoundEnded += EventHandlers.OnRoundEnd;
-				Handlers.Server.WaitingForPlayers += EventHandlers.OnWaitingForPlayers;
-				Handlers.Player.TriggeringTesla += EventHandlers.OnTriggerTesla;
-			}
-			catch (Exception e)
-			{
-				Log.Error($"OnEnable Error: {e}");
-			}
+			Handlers.Server.RoundStarted += EventHandlers.OnRoundStart;
+			Handlers.Server.RoundEnded += EventHandlers.OnRoundEnd;
+			Handlers.Server.WaitingForPlayers += EventHandlers.OnWaitingForPlayers;
+			Handlers.Player.TriggeringTesla += EventHandlers.OnTriggerTesla;
+
+			base.OnEnabled();
 		}
 
 		public override void OnDisabled()
 		{
 			foreach (CoroutineHandle handle in EventHandlers.Coroutines)
 				Timing.KillCoroutines(handle);
+			EventHandlers.Coroutines.Clear();
 			Handlers.Server.RoundStarted -= EventHandlers.OnRoundStart;
 			Handlers.Server.RoundEnded -= EventHandlers.OnRoundEnd;
 			Handlers.Server.WaitingForPlayers -= EventHandlers.OnWaitingForPlayers;
 			Handlers.Player.TriggeringTesla -= EventHandlers.OnTriggerTesla;
 			EventHandlers = null;
-		}
 
-		public override void OnReloaded()
-		{
-			
+			base.OnDisabled();
 		}
 
 		public IEnumerator<float> RunBlackoutTimer()
