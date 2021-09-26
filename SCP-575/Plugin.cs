@@ -14,13 +14,13 @@ namespace SCP_575
 {
 	public class Plugin : Exiled.API.Features.Plugin<Config>
 	{
-		public override string Author { get; } = "Galaxy119";
-		public override string Name { get; } = "SCP-575";
-		public override string Prefix { get; } = "575";
-		public override Version Version { get; } = new Version(3, 9, 0);
-		public override Version RequiredExiledVersion { get; } = new Version(3, 0, 0);
-		
-		public Random Gen = new Random();
+        public override string Name => "SCP-575";
+        public override string Author => "Original by Galaxy119, Continued by Marco15453";
+        public override string Prefix => "575";
+        public override Version Version => new Version(3, 9, 1);
+        public override Version RequiredExiledVersion => new Version(3, 0, 0);
+
+        public Random Gen = new Random();
 		
 		public EventHandlers EventHandlers;
 		public static bool TimerOn;
