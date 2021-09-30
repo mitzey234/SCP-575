@@ -2,7 +2,7 @@
 SCP-575 is a sentient (non-playable) entity that will wreak havoc around the facility.
 
 When a round starts there is a configurable chance that SCP-575 will be present that round.
-If he is, after a configurable initial delay (default 5mins), he will cause a power blackout within the facility. During this blackout, lights in both HCZ and LCZ will be off, causing players to need flashlights or NV scopes to find their way around. (SCP's are unaffected by the blackouts, and can see normally).
+If he is, after a configurable initial delay (default 5mins), he will cause a power blackout within the facility. During this blackout, lights in HCZ, LCZ and Entrance will be off, causing players to need flashlights or NV scopes to find their way around. (SCP's are unaffected by the blackouts, and can see normally).
 If SCP-575's 'keter' option is enabled (which it is by default), he will damage players every 5 sec who are in the dark without a light source (such as a flashlight, gun flashlight attachment, or a gun NV scope attackment) for a configurable amount of damage (default 10).
 During blackouts, automatic tesla gates are disabled, though 079 can still manually trigger them.
 After a configured period of time (default 90s) the blackout will end.
