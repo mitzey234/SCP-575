@@ -17,7 +17,7 @@ namespace SCP_575
         public override string Name => "SCP-575";
         public override string Author => "Original by Galaxy119, Continued by Marco15453";
         public override string Prefix => "575";
-        public override Version Version => new Version(3, 9, 1);
+        public override Version Version => new Version(3, 9, 2);
         public override Version RequiredExiledVersion => new Version(3, 0, 0);
 
         public Random Gen = new Random();
