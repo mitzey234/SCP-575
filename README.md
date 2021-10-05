@@ -16,9 +16,9 @@ Name | Type | Description | Default
 ---- | ---- | ----------- | -------
 random_events | bool | Whether or not randomly timed events should occur. If false, all events will be at the same interval apart. | true
 disable_teslas | bool | Whether or not tesla gates should be disabled during blackouts. | true
-initial_delay | float | The delay before the first event of each round, in seconds. | 300
-duration_min | float | The minimum number of seconds a blackout event can last. | 30
-duration_max | float | The maximum number of seconds a blackout event can last. If RandomEvents is disabled, this will be the duration for every event. | 90
+initial_delay | int | The delay before the first event of each round, in seconds. | 300
+duration_min | int | The minimum number of seconds a blackout event can last. | 30
+duration_max | int | The maximum number of seconds a blackout event can last. If RandomEvents is disabled, this will be the duration for every event. | 90
 delay_min | int | The minimum amount of seconds between each event. | 180
 delay_max | int | The maximum amount of seconds between each event. If RandomEvents is disabled, this will be the delay between every event. | 500
 spawn_chance | int | The percentage change that SCP-575 events will occur in any particular round. | 45

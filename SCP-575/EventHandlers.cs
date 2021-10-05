@@ -9,37 +9,22 @@ namespace SCP_575
 		public Plugin plugin;
 		public EventHandlers(Plugin plugin) => this.plugin = plugin;
 
-		public bool TeslasDisabled = false;
-		public List<CoroutineHandle> Coroutines = new List<CoroutineHandle>();
-
 		public void OnRoundStart()
 		{
-			foreach (CoroutineHandle handle in Coroutines)
-				Timing.KillCoroutines(handle);
-			Coroutines.Clear();
-			TeslasDisabled = false;
+			Timing.KillCoroutines(plugin.BlackoutCoroutine, plugin.KeterCoroutine);
+			plugin.TeslasDisabled = false;
 			if (plugin.Gen.Next(100) < plugin.Config.SpawnChance)
-				Coroutines.Add(Timing.RunCoroutine(plugin.RunBlackoutTimer()));
+				plugin.BlackoutCoroutine = Timing.RunCoroutine(plugin.Extensions.RunBlackoutTimer());
 		}
 
 		public void OnRoundEnd(RoundEndedEventArgs ev)
 		{
-			foreach (CoroutineHandle handle in Coroutines)
-				Timing.KillCoroutines(handle);
-			Coroutines.Clear();
-		}
-
-		public void OnWaitingForPlayers()
-		{
-			foreach (CoroutineHandle handle in Coroutines)
-				Timing.KillCoroutines(handle);
-			Coroutines.Clear();
-			TeslasDisabled = false;
+			Timing.KillCoroutines(plugin.BlackoutCoroutine, plugin.KeterCoroutine);
 		}
 
 		public void OnTriggerTesla(TriggeringTeslaEventArgs ev)
 		{
-			if (TeslasDisabled)
+			if (plugin.TeslasDisabled)
 				ev.IsTriggerable = false;
 		}
 	}
