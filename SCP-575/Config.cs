@@ -46,9 +46,9 @@ namespace SCP_575
         public string CassieMessageStart { get; set; } = "facility power system failure in 3 . 2 . 1 .";
         public string CassieKeter { get; set; } = "pitch_0.15 .g7";
         public string CassieMessageEnd { get; set; } = "facility power system now operational";
-        [Description("Broadcast shown when a player is damaged by SCP-575.")]
-        public string DamageBroadcast { get; set; } = "You were damaged by SCP-575! Equip a flashlight!";
-        public ushort DamageBroadcastDuration { get; set; } = 5;
+        [Description("Hint shown when a player is damaged by SCP-575.")]
+        public string DamageHint { get; set; } = "<color=blue>You were damaged by</color> <color=red>SCP-575</color><color=blue>! Equip a flashlight!</color>";
+        public ushort DamageHintDuration { get; set; } = 5;
 
     }
 }

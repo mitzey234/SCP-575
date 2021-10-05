@@ -58,7 +58,11 @@ namespace SCP_575
                 foreach (Player player in Player.List)
                 {
                     if (player.CurrentRoom.LightsOff && !player.HasFlashlightModuleEnabled && !(player.CurrentItem is Flashlight flashlight && flashlight.Active) && player.IsHuman)
+                    {
                         player.Hurt(plugin.Config.KeterDamage, DamageTypes.Bleeding, plugin.Config.KilledBy);
+                        if (plugin.Config.DamageHintDuration > 0)
+                            player.ShowHint(plugin.Config.DamageHint, plugin.Config.DamageHintDuration);
+                    }
 
                     yield return Timing.WaitForSeconds(5f);
                 }

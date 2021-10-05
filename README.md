@@ -31,8 +31,8 @@ killed_by | string | Name displayed in player's death information | SCP-575
 cassie_message_start | string | Message said by Cassie | facility power system failure in 3 . 2 . 1 .
 cassie_keter | string | -/- | pitch_0.15 .g7
 cassie_message_end | string | -/- | facility power system now operational
-damage_broadcast | string | Broadcast shown when a player is damaged by SCP-575. | You were damaged by SCP-575! Equip a flashlight!
-damage_broadcast_duration | ushort | -/- | 5
+damage_hint | string | Hint shown when a player is damaged by SCP-575. | <color=blue>You were damaged by</color> <color=red>SCP-575</color><color=blue>! Equip a flashlight!</color>
+damage_hint_duration | ushort | -/- | 5
 
 # Default Config
 ```yml
@@ -74,6 +74,6 @@ damage_broadcast_duration | ushort | -/- | 5
   cassie_keter: pitch_0.15 .g7
   cassie_message_end: facility power system now operational
   # Broadcast shown when a player is damaged by SCP-575.
-  damage_broadcast: You were damaged by SCP-575! Equip a flashlight!
-  damage_broadcast_duration: 5
+  damage_hint: <color=blue>You were damaged by</color> <color=red>SCP-575</color><color=blue>! Equip a flashlight!</color>
+  damage_hint_duration: 5
 ```
