@@ -11,8 +11,8 @@ namespace SCP_575
         public override string Name => "SCP-575";
         public override string Author => "Original by Joker119, Continued by Marco15453";
         public override string Prefix => "575";
-        public override Version Version => new Version(4, 1, 2);
-        public override Version RequiredExiledVersion => new Version(3, 0, 5);
+        public override Version Version => new Version(4, 2, 0);
+        public override Version RequiredExiledVersion => new Version(3, 6, 2);
 
         public Random Gen = new Random();
 		public bool TeslasDisabled = false;

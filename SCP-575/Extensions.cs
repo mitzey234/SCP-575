@@ -37,8 +37,7 @@ namespace SCP_575
                 if (plugin.Config.EnableKeter)
                     plugin.KeterCoroutine = Timing.RunCoroutine(RunKeter(blackoutDur));
 
-                foreach (ZoneType type in plugin.Config.AffectedZones)
-                    Map.TurnOffAllLights(blackoutDur, type);
+                Map.TurnOffAllLights(blackoutDur, plugin.Config.AffectedZones);
 
                 if (plugin.Config.Voice)
                     Cassie.Message(plugin.Config.CassieKeter, false, false);
