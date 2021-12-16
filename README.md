@@ -22,6 +22,7 @@ duration_max | int | The maximum number of seconds a blackout event can last. If
 delay_min | int | The minimum amount of seconds between each event. | 180
 delay_max | int | The maximum amount of seconds between each event. If RandomEvents is disabled, this will be the delay between every event. | 500
 spawn_chance | int | The percentage change that SCP-575 events will occur in any particular round. | 45
+warhead | bool | Whether or not SCP-575 will gets terminated when the warhead detonates | true
 enable_keter | bool | Whether or not people in dark rooms should take damage if they have no light source in their hand. | true
 affected_zones | HashSet | Blackout Affected Zones | Surface, Entrance, HeavyContainment, LightContainment
 voice | bool | Whether or not SCP-575's "roar" should happen after a blackout starts. | true
@@ -53,6 +54,8 @@ damage_hint_duration | ushort | -/- | 5
   delay_max: 500
   # The percentage change that SCP-575 events will occur in any particular round.
   spawn_chance: 45
+  # Whether or not SCP-575 will gets terminated when the warhead detonates
+  warhead: true
   # Whether or not people in dark rooms should take damage if they have no light source in their hand.
   enable_keter: true
   # Blackout Affected Zones

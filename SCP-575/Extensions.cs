@@ -1,5 +1,4 @@
-﻿using Exiled.API.Enums;
-using Exiled.API.Features;
+﻿using Exiled.API.Features;
 using Exiled.API.Features.Items;
 using MEC;
 using System;
@@ -58,7 +57,7 @@ namespace SCP_575
                 {
                     if (player.CurrentRoom.LightsOff && !player.HasFlashlightModuleEnabled && !(player.CurrentItem is Flashlight flashlight && flashlight.Active) && player.IsHuman)
                     {
-                        player.Hurt(plugin.Config.KeterDamage, DamageTypes.Bleeding, plugin.Config.KilledBy);
+                        player.Hurt(plugin.Config.KilledBy, plugin.Config.KeterDamage);
                         if (plugin.Config.DamageHintDuration > 0)
                             player.ShowHint(plugin.Config.DamageHint, plugin.Config.DamageHintDuration);
                     }

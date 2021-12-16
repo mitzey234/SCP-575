@@ -3,6 +3,7 @@ using MEC;
 
 using Server = Exiled.Events.Handlers.Server;
 using Player = Exiled.Events.Handlers.Player;
+using Warhead = Exiled.Events.Handlers.Warhead;
 
 namespace SCP_575
 {
@@ -11,8 +12,8 @@ namespace SCP_575
         public override string Name => "SCP-575";
         public override string Author => "Original by Joker119, Continued by Marco15453";
         public override string Prefix => "575";
-        public override Version Version => new Version(4, 2, 0);
-        public override Version RequiredExiledVersion => new Version(3, 6, 2);
+        public override Version Version => new Version(4, 3, 0);
+        public override Version RequiredExiledVersion => new Version(4, 1, 6);
 
         public Random Gen = new Random();
 		public bool TeslasDisabled = false;
@@ -46,6 +47,9 @@ namespace SCP_575
 
 			// Player
 			Player.TriggeringTesla += EventHandlers.OnTriggerTesla;
+
+			// Warhead
+			Warhead.Detonated += EventHandlers.OnWarheadDetonated;
 		}
 
         private void unregisterEvents()
@@ -56,6 +60,9 @@ namespace SCP_575
 
 			// Player
 			Player.TriggeringTesla -= EventHandlers.OnTriggerTesla;
+
+			// Warhead
+			Warhead.Detonated -= EventHandlers.OnWarheadDetonated;
 
 			EventHandlers = null;
 			Extensions = null;

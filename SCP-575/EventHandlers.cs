@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using MEC;
 
@@ -27,5 +27,14 @@ namespace SCP_575
 			if (plugin.TeslasDisabled)
 				ev.IsTriggerable = false;
 		}
+
+		public void OnWarheadDetonated()
+        {
+			if (!plugin.Config.Warhead) return;
+
+			Timing.KillCoroutines(plugin.BlackoutCoroutine, plugin.KeterCoroutine);
+			float num = (AlphaWarheadController.Host.timeToDetonation <= 0f) ? 3.5f : 1f;
+			Cassie.GlitchyMessage("SCP 5 7 5 SUCCESSFULLY TERMINATED BY ALPHA WARHEAD", UnityEngine.Random.Range(0.1f, 0.14f) * num, UnityEngine.Random.Range(0.07f, 0.08f) * num);
+        }
 	}
 }
