@@ -23,16 +23,22 @@ namespace SCP_575
 
 		public CoroutineHandle BlackoutCoroutine;
 		public CoroutineHandle KeterCoroutine;
-		
+
+		private bool state = false;
+
 		public override void OnEnabled()
-		{				
+		{
+			if (state) return;
 			registerEvents();
+			state = true;
 			base.OnEnabled();
 		}
 
 		public override void OnDisabled()
 		{
+			if (!state) return;
 			unregisterEvents();
+			state = false;
 			base.OnDisabled();
         }
 
